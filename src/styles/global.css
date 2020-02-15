@@ -11,13 +11,35 @@ body {
 
 .board {
   display: grid;
-  grid-template-columns: repeat(61, calc((100vw - 24px) / 61));
-  grid-template-rows: repeat(61, calc((100vw - 24px) / 61));
-  margin: 8px;
+  grid-template-columns: repeat(61, 8px);
+  grid-template-rows: repeat(61, 8px);
+  margin: 8px auto;
+  max-width: 488px;
   border: 4px solid #fff;
 }
 
 .paddle {
-  grid-column: -4 / span 1;
   background-color: #fff;
+}
+
+.paddle.paddle__player {
+  grid-column: 59 / span 1;
+}
+
+.paddle.paddle__computer {
+  grid-column: 3 / span 1;
+}
+
+.ball {
+  background-color: #fff;
+}
+
+.scores {
+  grid-column: 1 / -1;
+  grid-row: 1 / span 1;
+  text-align: center;
+}
+
+.scores .divider {
+  padding: 0 4px;
 }

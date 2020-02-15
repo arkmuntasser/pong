@@ -22,6 +22,44 @@ function reducer(state, action) {
 				...state,
 				rightPaddlePostion: Math.min(state.rightPaddlePostion + 1, 50)
 			};
+		case 'CHANGE_X_DIRECTION':
+			return {
+				...state,
+				xDirection: state.xDirection * -1
+			};
+		case 'CHANGE_Y_DIRECTION':
+			return {
+				...state,
+				yDirection: state.yDirection * -1
+			};
+		case 'INCREMENT_PLAYER_SCORE':
+			return {
+				...state,
+				coords: {
+					x: 31,
+					y: 31,
+				},
+				xDirection: 1,
+				playerScore: state.playerScore + 1
+			};
+		case 'INCREMENT_CPU_SCORE':
+			return {
+				...state,
+				coords: {
+					x: 31,
+					y: 31,
+				},
+				xDirection: -1,
+				cpuScore: state.cpuScore + 1
+			};
+		case 'MOVE':
+			return {
+				...state,
+				coords: {
+					x: state.coords.x + state.xDirection,
+					y: state.coords.y + state.yDirection,
+				}
+			};
 		default:
 			return;
 	}
@@ -34,9 +72,12 @@ const gameLogic = {
 		x: 31,
 		y: 31,
 	},
-	direction: 1,
-	leftPaddlePostion: 1,
-	rightPaddlePostion: 1,
+	xDirection: 1,
+	yDirection: 1,
+	leftPaddlePostion: 25,
+	rightPaddlePostion: 25,
+	playerScore: 0,
+	cpuScore: 0,
 }
 
 const GameContext = createContext(gameLogic);

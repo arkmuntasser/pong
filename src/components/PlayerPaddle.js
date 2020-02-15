@@ -7,7 +7,7 @@ function PlayerPaddle() {
 	const up = useKeyPress('ArrowUp');
 	const down = useKeyPress('ArrowDown');
 	const intervalId = useRef();
-	const speed = 50;
+	const speed = 30;
 
 	useEffect(() => {
 		const type = up ? 'RIGHT_PADDLE_UP' : down ? 'RIGHT_PADDLE_DOWN' : undefined;
