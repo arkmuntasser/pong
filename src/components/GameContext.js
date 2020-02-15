@@ -2,22 +2,22 @@ import React, { createContext, useReducer } from 'react';
 
 function reducer(state, action) {
 	switch (action.type) {
-		case "LEFT_PADDLE_UP":
+		case 'LEFT_PADDLE_UP':
 			return {
 				...state,
 				leftPaddlePostion: Math.max(state.leftPaddlePostion - 1, 1)
 			};
-		case "LEFT_PADDLE_DOWN":
+		case 'LEFT_PADDLE_DOWN':
 			return {
 				...state,
 				leftPaddlePostion: Math.min(state.leftPaddlePostion + 1, 50)
 			};
-		case "RIGHT_PADDLE_UP":
+		case 'RIGHT_PADDLE_UP':
 			return {
 				...state,
 				rightPaddlePostion: Math.max(state.rightPaddlePostion - 1, 0)
 			};
-		case "RIGHT_PADDLE_DOWN":
+		case 'RIGHT_PADDLE_DOWN':
 			return {
 				...state,
 				rightPaddlePostion: Math.min(state.rightPaddlePostion + 1, 50)
@@ -60,6 +60,11 @@ function reducer(state, action) {
 					y: state.coords.y + state.yDirection,
 				}
 			};
+		case 'START_GAME':
+			return {
+				...state,
+				started: true
+			}
 		default:
 			return;
 	}

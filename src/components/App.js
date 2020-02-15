@@ -1,19 +1,11 @@
 import React from 'react';
 import { GameProvider } from './GameContext'
-import PlayerPaddle from './PlayerPaddle';
-import Ball from './Ball';
-import ComputerPaddle from './ComputerPaddle';
-import Scores from './Scores';
+import Board from './Board';
 
 function App() {
   return (
 		<GameProvider>
-			<div className="board">
-				<Scores />
-				<Ball />
-				<PlayerPaddle />
-				<ComputerPaddle />
-			</div>
+			<Board />
 		</GameProvider>
   );
 }
